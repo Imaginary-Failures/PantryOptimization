@@ -6,12 +6,29 @@ class Pantry():
         self.shelves = [];
         for s in range(self.numShelves):
             self.shelves.append(Pantry.addShelf(self))
-            print(self.shelves)
     pass 
 
     def addShelf(self):
-        length = int(input("Length of shelf: "))
         width = int(input("Width of shelf: "))
         height = int(input("Height of shelf: "))
-        newShelf = Shelf.Shelf(length, width, height)
+        newShelf = Shelf.Shelf(width, height)
         return newShelf
+    pass
+
+    def getShelves(self):
+        return self.shelves
+    pass
+
+    def getNumShelves(self):
+        return self.numShelves
+    pass
+
+    #def search(Foodstuff):Stack
+    
+    def displayShelf(self, index):
+        return self.shelves[index]
+    pass
+
+    def __str__(self):
+        return str(self.shelves)
+    pass
