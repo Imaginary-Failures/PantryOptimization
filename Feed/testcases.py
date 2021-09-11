@@ -11,7 +11,9 @@ sriracha = APIReader.APIReader("sriracha")
 tomato_sauce = APIReader.APIReader("tomato_sauce")
 whipped_cream = APIReader.APIReader("whipped")
 
+# https://www.geeksforgeeks.org/viewing-all-defined-variables-in-python/
 file_vars = dir()
 for v in file_vars:
-    print(eval(v))
+    if not v.startswith('__'):
+        print(eval(v))
 
