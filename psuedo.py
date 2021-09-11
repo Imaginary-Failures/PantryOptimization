@@ -30,9 +30,9 @@ rearrange_stack(stack, newItem) -> stack:
 >> Items = [...Foodstuffs]
 
 Valid Output:
-        [4, 3]
-[9,7]   [5, 1]
-[10,3]  [9,4]  [  
+        [4, 3]  [3,2]
+[9,7]   [5, 1]  [3,2]
+[10,3]  [9, 4]  [3,3]
 
 
 
