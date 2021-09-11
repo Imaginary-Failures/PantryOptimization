@@ -1,0 +1,11 @@
+{
+    "name": "Arm & Hammer Baking Soda",
+    "barcode": "033200011101",
+    "dimensions": {
+      "length": 3.56,
+      "depth": 2,
+      "height": 4.63,
+      "weight": 15.2,
+      "type": "box"
+    }
+  }

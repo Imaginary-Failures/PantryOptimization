@@ -1,0 +1,11 @@
+{
+    "name": "Folgers Coffee Classic Roast",
+    "barcode": "025500204215",
+    "dimensions": {
+      "length": 6.3,
+      "depth": 6.3,
+      "height": 6.5,
+      "weight": 39.04,
+      "type": "round"
+    }
+  }
