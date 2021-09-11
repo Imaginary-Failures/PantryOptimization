@@ -19,7 +19,7 @@ class Foodstuff:
         self.type = self.d["dimensions"]["type"]
 
     def isStackable(self) -> bool:
-        non_stackable = ["bottle", "special"]  # need more examples of non-stackables
+        non_stackable = ["bottle", "special", "small"]  # need more examples of non-stackables
         return self.type not in non_stackable
 
     def __str__(self):
