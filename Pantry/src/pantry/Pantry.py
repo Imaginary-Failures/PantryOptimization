@@ -23,7 +23,12 @@ class Pantry():
         return self.numShelves
     pass
 
-    #def search(Foodstuff):Stack
+    def search(self, foodstuff):
+        for shelf in self.shelves:
+            if(shelf.searchFor(foodstuff) != None):
+                return shelf.searchFor(foodstuff)
+        return None
+    pass
     
     def displayShelf(self, index):
         return self.shelves[index]
