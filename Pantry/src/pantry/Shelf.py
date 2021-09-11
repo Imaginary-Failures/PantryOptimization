@@ -1,51 +1,49 @@
 class Shelf:
     
     def __init__(self, w, h):
-        self.thisshelf = {
-            "width": w,
-            "height": h,
-            "stacks": []
-        }
+            self.width = w,
+            self.height = h,
+            self.stacks = []
         
     pass
 
     def createStack(self):
-        self.thisshelf["stacks"].append(new Stack()) #I need to have Stack constructor for this to work right now.
+        self.stacks.append(Stack()) #I need to have Stack constructor for this to work right now.
     pass
 
     def removeStack(self, index):
-        self.thisshelf["stacks"].remove(index)
+        self.stacks.remove(index)
     pass
     
     def getStack(self, index):
-        return self.thisshelf["stacks"][index]
+        return self.stacks[index]
     pass
 
     def searchFor(self, foodstuff):
-        for(stack in self.thisshelf["stacks"]):
+        for(stack in self.stacks):
             if(stack.inStack(foodstuff)):
                 return stack
         return None
     pass
 
     def getFoodstacks(self):
-        return self.thisshelf["stacks"]
+        return self.stacks
     pass
 
     def getWidth(self):
-        return self.thisshelf["width"]
+        return self.width
     pass
 
     def getHeight(self):
-        return self.thisshelf["height"]
+        return self.height
     pass
 
     def isEmpty(self):
-        return self.thisshelf["stacks"] == []
+        return self.stacks == []
     pass
 
     def __str__(self):
-        return '' + str(self.thisshelf["width"]) + ', ' + str(self.thisshelf["height"])
+        return '' + str(self.width) + ', ' + str(self.height)
     def __repr__(self):
-        return '' + str(self.thisshelf["width"]) + ', ' + str(self.thisshelf["height"])
+        return '' + str(self.width) + ', ' + str(self.height)
     
