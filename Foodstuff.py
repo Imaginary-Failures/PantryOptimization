@@ -6,7 +6,7 @@ def volume(length: float, depth: float, height: float):
 
 
 class Foodstuff:
-
+    """This function creates and hold item information grabbed from the API"""
     def __init__(self, name: str):
         self.d = APIReader.APIReader(name).r_json
         self.name = self.d["name"]

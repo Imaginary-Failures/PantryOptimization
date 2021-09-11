@@ -17,7 +17,7 @@ def readFile(file):
 
 
 class APIReader:
-
+    """The APIReader class finds the file with a similar name and grabs its JSON"""
     def __init__(self, item_name: str):
         self.filename = getItem(item_name)
         self.r_json = readFile(self.filename)
