@@ -1,9 +1,14 @@
 # hello pennapps
 import Foodstuff
 
-oil = Foodstuff.Foodstuff("olive")
-print(oil)
-
+stock = []
+oil = Foodstuff.Foodstuff("olive_oil")
+for i in range(6):
+    stock.append(oil)
+can = Foodstuff.Foodstuff("canned_hash")
+for i in range(8):
+    stock.append(can)
+print(stock)
 """
 Output:
 
