@@ -2,7 +2,7 @@ import json
 import os
 
 
-def getItem(item: str):
+def getItem(item: str) -> str:
     dir = './Feed/GenericJSONS'
     for filename in os.listdir(dir):
         curr_file = os.path.join(dir, filename)
@@ -10,7 +10,7 @@ def getItem(item: str):
             return "{}/{}".format(dir,filename)
 
 
-def readFile(file):
+def readFile(file) -> str:
     f = open(file, 'r')
     content = f.read()
     return json.loads(content)
