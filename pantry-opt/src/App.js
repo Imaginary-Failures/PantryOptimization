@@ -1,3 +1,4 @@
+import logo from "./logo.svg";
 import "./App.css";
 import "./index.css";
 import Home from "./Home";
@@ -12,9 +13,9 @@ import {
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/NavBar";
-import { Button } from "react-bootstrap";
+import { Button, ProgressBar } from "react-bootstrap";
 import Counters from "./components/counters";
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { useState } from "react";
 import Header from "./components/header";
 import HeaderItem from "./components/headerItem";
@@ -29,6 +30,11 @@ import Items from "./components/Items";
 import { motion, useAnimation } from "framer-motion";
 import { Transition } from "react-transition-group";
 import Particles from "react-particles-js";
+import ReactProgressMeter from "react-progress-meter";
+import { propTypes } from "react-bootstrap/esm/Image";
+import { useFrame, Canvas } from "@react-three/fiber";
+import { OrbitControls, Stars } from "@react-three/drei";
+// import { Physics, useBox } from "@react-three/cannon";
 
 // function App() {
 //   return (
@@ -102,8 +108,25 @@ const App = () => {
     background: "black",
   };
 
-  //Method to calculate
-  const calculate = () => {};
+  function Box() {
+    return (
+      <mesh position={[0, 0, 0]}>
+        <boxBufferGeometry attach="geometry" args={[4, 4, 4]} />
+        <meshLambertMaterial attach="material" color="hotpink" />
+      </mesh>
+    );
+  }
+
+  function Sphere() {
+    return (
+      <mesh position={[0, 100, 0]}>
+        <sphereBufferGeometry attach="geometry" />
+        <meshLambertMaterial attach="material" color="lightblue" />
+      </mesh>
+    );
+  }
+
+  const [progress, setProgress] = useState(0);
 
   return (
     <div className="App">
@@ -129,10 +152,18 @@ const App = () => {
           },
         }}
       />
+      <ProgressBar now={progress} animated striped variant="success" />
       {pantries.length === 1 ? (
         ""
       ) : (
         <div className="containerPantry">
+          <Canvas className="box">
+            <OrbitControls />
+            <ambientLight intensity={0.5} />
+            <spotLight position={[10, 15, 10]} angle={0.5} />
+            <Box />
+            <Stars />
+          </Canvas>
           <HeaderPantry
             onAdd={() =>
               setShowPantryAdd(!showPantryAdd && pantries.length <= 1)
@@ -140,17 +171,17 @@ const App = () => {
             showAdd={showPantryAdd}
           />
 
-          {showPantryAdd ? (
-            <AddPantry onAdd={addPantry} pantries={pantries} />
-          ) : (
-            ""
-          )}
           {pantries.length > 0 ? (
             <Pantries
               pantries={pantries}
               onDelete={deletePantry}
               onToggle={toggleReminder}
             />
+          ) : (
+            ""
+          )}
+          {showPantryAdd ? (
+            <AddPantry onAdd={addPantry} pantries={pantries} />
           ) : (
             ""
           )}
@@ -213,8 +244,8 @@ const App = () => {
               "No Items Available"
             )}
           </div>
-
           {items.length > 0 && tasks.length > 0 ? (
+
             <form method="GET" action="parse">
               <input hidden name="pantries" value={JSON.stringify(pantries)}></input>
               <input hidden name="items" value={JSON.stringify(items)}></input>
@@ -230,7 +261,6 @@ const App = () => {
       ) : (
         ""
       )}
-
 
       <Particles
         params={{

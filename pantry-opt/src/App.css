@@ -1,39 +1,229 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+canvas.tsparticles-canvas-el {
+  max-height: 200px;
+}
+
+button.btn.active.btn-primary.btn-lg:hover {
+  transform: scale(1.1);
+}
+
+div.task {
+  background-color: rgb(135, 179, 157);
+  border-radius: 5px;
+}
+
+div.form-control {
   background-color: lightblue;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+div.form-control:hover {
+  background-color: rgb(146, 179, 163);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+svg:hover {
+  transform: scale(1.1);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+input {
+  background-color: lightgray;
+}
+
+.containerPantry:hover {
+  opacity: 0.75;
+  background-color: rgb(174, 209, 192);
+  transform: scale(1.04);
+  transition-duration: 0.2s;
+}
+.containerItems:hover {
+  opacity: 0.75;
+  background-color: rgb(174, 209, 192);
+  transform: scale(1.04);
+  transition-duration: 0.2s;
+}
+.containerShelf:hover {
+  opacity: 0.75;
+  background-color: rgb(174, 209, 192);
+  transform: scale(1.04);
+  transition-duration: 0.2s;
+}
+
+button.btn:hover {
+  transform: scale(1.04);
+}
+
+div.progress {
+  max-width: 200px;
+  margin: 30px auto;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+input.btn.btn-block:hover {
+  transform: scale(1.04);
+}
+
+nav.navbar.navbar-expand.navbar-light:hover {
+  background-color: rgb(150, 137, 137);
+  transition: 0.5s;
+}
+
+div.box > canvas {
+  border: 2px solid steelblue;
+}
+
+.containerShelf {
+  max-width: 400px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 3px solid steelblue;
+  padding: 30px;
+  border-radius: 5px;
+}
+.containerPantry {
+  max-width: 400px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 200px;
+  border: 3px solid steelblue;
+  padding: 20px;
+  border-radius: 5px;
+}
+.containerItems {
+  max-width: 400px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 3px solid steelblue;
+  padding: 20px;
+  border-radius: 5px;
+}
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+button.btn {
+  color: #f4f4f4;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.task {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.task.reminder {
+  border-left: 5px solid green;
+}
+
+.task h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.item h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pantry {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.pantry h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-form {
+  margin-bottom: 40px;
+}
+
+.form-control {
+  margin: 20px 0;
+}
+
+.form-control label {
+  display: block;
+}
+
+.form-control input {
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
+.form-control-check {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-control-check label {
+  flex: 1;
+}
+
+.form-control-check input {
+  flex: 2;
+  height: 20px;
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
 }

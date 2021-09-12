@@ -37,6 +37,8 @@ class Foodstuff:
         print("Less equal")
 
     def __lt__(self, other):
+
         temp = self.depth < other.depth
         print("Computed {} < {}: {}".format(self.depth, other.depth, temp))
         return temp
+
