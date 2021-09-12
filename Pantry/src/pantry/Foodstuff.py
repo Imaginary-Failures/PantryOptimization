@@ -13,7 +13,7 @@ class Foodstuff:
         self.name = self.d["name"]
         self.length = self.d["dimensions"]["length"]
         self.depth = self.d["dimensions"]["depth"]
-        self.height = self.d["dimensions"]["depth"]
+        self.height = self.d["dimensions"]["height"]
         self.weight = self.d["dimensions"]["weight"]
         self.barcodeID = self.d["barcode"]
         self.type = self.d["dimensions"]["type"]
@@ -36,4 +36,4 @@ class Foodstuff:
     def __le__(self, other):
         print("Less equal")
     def __lt__(self, other):
-        print("Less than")
+        return self.depth < other.depth
