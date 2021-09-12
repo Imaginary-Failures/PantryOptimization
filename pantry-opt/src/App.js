@@ -245,6 +245,7 @@ const App = () => {
             )}
           </div>
           {items.length > 0 && tasks.length > 0 ? (
+
             <form method="GET" action="parse">
               <input hidden name="pantries" value={JSON.stringify(pantries)}></input>
               <input hidden name="items" value={JSON.stringify(items)}></input>
