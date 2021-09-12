@@ -1,43 +1,52 @@
-from pantry import Pantry, Shelf
-import unittest
+import Pantry, Shelf
 
-class PantryTest(unittest.TestCase):
+class PantryTest():
     
-    def setUp(self):
-        global testPantry
-        testPantry = Pantry.Pantry(2)
-        global emptyPantry
-        emptyPantry = Pantry.Pantry(0)
-    pass
+    #test init
+    print("Testing init Pantry with no args.")
+    inputPantry = Pantry.Pantry();
+    print("Testing init Pantry with specified 0 shelves.")
+    emptyPantry = Pantry.Pantry(0);
     
-    def testInit(self):
-        comparePantry = Pantry.Pantry()
-        ##pass input of 2
-        unittest.assertEqual(comparePantry, testPantry)
-        pass
-
-    def testAddShelf(self):
+    #test addShelf
+    print("Testing addShelf() with no args.")
+    inputPantry.addShelf();
+    emptyPantry.addShelf(10, 15);
+    testValue = "[{Width: 10; Height: 15}]"
+    if(str(emptyPantry) != testValue) :
+        print("Expected " + testValue + ", returned " + str(emptyPantry))
+    else :
+        print("AddShelf success")
         
-        pass
-    
-    def testGetShelves(self):
+    #test getShelves
+    print("Testing getShelves")
+    emptyPantry.addShelf(11, 16)
+    testValue = "[{Width: 10; Height: 15}, {Width: 11; Height: 16}]"
+    if(str(emptyPantry) != testValue) :
+        print("Expected " + testValue + ", returned " + str(emptyPantry))
+    else :
+        print("getShelves success")
         
-        pass
-    
-    def testGetNumShelves(self):
+    #test getNumShelves
+    testValue = 2
+    if(emptyPantry.getNumShelves() != testValue) :
+        print("Expected " + str(testValue) + ", returned " + str(emptyPantry.getNumShelves()))
+    else :
+        print("getNumShelves success")
         
-        pass
-    
-    def testSearch(self):
+    #test search:
         
-        pass
     
-    def testDisplayShelf(self):
-        
-        pass
-    
-    def testStr(self):
-        
-        pass
+    #test displayShelf():
+    testValue = "{Width: 10; Height: 15}"
+    if(str(emptyPantry.displayShelf(0)) != testValue) :
+        print("Expected " + testValue + ", returned " + str(emptyPantry.displayShelf(0)))
+    else :
+        print("displayShelf at 0 success")
+    testValue = "{Width: 11; Height: 16}"
+    if(str(emptyPantry.displayShelf(1)) != testValue) :
+        print("Expected " + testValue + ", returned " + str(emptyPantry.displayShelf(0)))
+    else :
+        print("displayShelf at 1 success")
     
     

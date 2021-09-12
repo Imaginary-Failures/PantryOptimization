@@ -1,26 +1,23 @@
-from pantry import Shelf
+import Shelf
+import Stack
 
 class Pantry():
     def __init__(self, numShelves=None):
         if(numShelves is None):
-            self.numShelves = int(input("How many shelves in pantry?"))
+            numShelves = int(input("How many shelves in pantry?"))
         else:
-            self.numShelves = numShelves
+            numShelves = numShelves
         self.shelves = [];
-        for s in range(self.numShelves):
+        for s in range(numShelves):
             Pantry.addShelf(self)
     pass 
 
-    def addShelf(self, width=None, height=None):
-        if(width is None):
-            self.width = int(input("Width of shelf: "))
-        else:
-            self.width = width
-        if(height is None):
-            height = int(input("Height of shelf: "))
-        else:
-            self.height = height
-        newShelf = Shelf.Shelf(width, height)
+    def addShelf(self, w=None, h=None):
+        if(w is None):
+            w = int(input("Width of shelf: "))
+        if(h is None):
+            h = int(input("Height of shelf: "))
+        newShelf = Shelf.Shelf(w, h)
         self.shelves.append(newShelf)
         return newShelf
     pass
@@ -30,7 +27,7 @@ class Pantry():
     pass
 
     def getNumShelves(self):
-        return self.numShelves
+        return len(self.shelves)
     pass
 
     def search(self, foodstuff):

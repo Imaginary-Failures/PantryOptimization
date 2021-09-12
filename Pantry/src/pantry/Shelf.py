@@ -1,15 +1,16 @@
-from pickle import FALSE
+import Stack
+
 class Shelf:
     
     def __init__(self, w, h):
-        self.width = w,
-        self.height = h,
+        self.width = w
+        self.height = h
         self.stacks = []
     pass
 
-    ##def createStack(self):
-    ##    self.stacks.append(Stack()) #I need to have Stack constructor for this to work right now.
-    ##pass
+    def createStack(self):
+        self.stacks.append(Stack()) 
+        pass
 
     def removeStack(self, index):
         self.stacks.remove(index)
@@ -19,12 +20,12 @@ class Shelf:
         return self.stacks[index]
     pass
 
-    ##def searchFor(self, foodstuff):
-    ##    for(stack in self.stacks):
-            ##if(stack.inStack(foodstuff)):
-                ##return stack
-    ##    return None
-    ##pass
+    def searchFor(self, foodstuff):
+        for scannedStack in self.stacks :
+            if(scannedStack.inStack(foodstuff)):
+                return stack
+        return None
+    pass
 
     def getFoodstacks(self):
         return self.stacks
@@ -43,9 +44,9 @@ class Shelf:
     pass
 
     def __str__(self):
-        return '' + str(self.width) + ', ' + str(self.height)
+        return '{Width: ' + str(self.width) + '; Height: ' + str(self.height) + '}'
     def __repr__(self):
-        return '' + str(self.width) + ', ' + str(self.height)
+        return '{Width: ' + str(self.width) + '; Height: ' + str(self.height) + '}'
     
     #If self is referencing compared object, return true
     #If compared object is null, return false
