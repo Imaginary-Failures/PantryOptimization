@@ -1,19 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import {
-  Link,
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-  useHistory,
-} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const AddTask = ({ showAddTask, onAdd, pantries, home, pantryOptions }) => {
+const AddItem = ({ showAddItem, onAdd, items, home, pantryOptions }) => {
   const [text, setText] = useState("");
-  const [day, setDay] = useState("");
-  const [reminder, setReminder] = useState(false);
   const [length, setLength] = useState();
   const [width, setWidth] = useState();
   const [height, setHeight] = useState();
@@ -48,10 +38,10 @@ const AddTask = ({ showAddTask, onAdd, pantries, home, pantryOptions }) => {
   return (
     <form className="add-form" onSubmit={onSubmit}>
       <div className="form-control">
-        <label>Shelf</label>
+        <label>Item</label>
         <input
           type="text"
-          placeholder="Add shelf"
+          placeholder="Add item"
           value={text}
           onChange={(e) => setText(e.target.value)}
         ></input>
@@ -92,11 +82,11 @@ const AddTask = ({ showAddTask, onAdd, pantries, home, pantryOptions }) => {
       <input
         style={buttonStyles}
         type="submit"
-        value="Add shelves"
+        value="Add item"
         className="btn btn-block"
       ></input>
     </form>
   );
 };
 
-export default AddTask;
+export default AddItem;

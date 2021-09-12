@@ -5,7 +5,7 @@ import Button from "./Button";
 
 //shortcut for const = rafce
 
-const header = ({ title, onAdd, showAdd }) => {
+const headerItem = ({ title, onAdd, showAdd }) => {
   return (
     <header className="header">
       <h1>{title}</h1>
@@ -18,12 +18,12 @@ const header = ({ title, onAdd, showAdd }) => {
   );
 };
 
-header.defaultProps = {
-  title: "Shelves",
+headerItem.defaultProps = {
+  title: "Items",
 };
 
-header.propTypes = {
+headerItem.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default header;
+export default headerItem;

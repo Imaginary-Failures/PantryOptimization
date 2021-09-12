@@ -53,6 +53,8 @@ const AddPantry = ({ onAdd, pantries }) => {
       <div className="form-control">
         <label>Length</label>
         <input
+          min="0"
+          step=".01"
           type="number"
           placeholder="Length"
           value={length}
@@ -62,6 +64,8 @@ const AddPantry = ({ onAdd, pantries }) => {
       <div className="form-control">
         <label>Width</label>
         <input
+          min="0"
+          step=".01"
           type="number"
           placeholder="Width"
           value={width}
@@ -71,6 +75,8 @@ const AddPantry = ({ onAdd, pantries }) => {
       <div className="form-control">
         <label>Height</label>
         <input
+          min="0"
+          step=".01"
           type="number"
           placeholder="Height"
           value={height}
