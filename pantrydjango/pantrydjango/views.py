@@ -16,7 +16,8 @@ def parse(request):
     """
     pantry = literal_eval(request.GET.get('pantries')[1:-1])
     items = literal_eval(request.GET.get('items')[1:-1])
-    shelves = literal_eval(request.GET.get('tasks')[1:-1])
+    # shelves = literal_eval(request.GET.get('tasks')[1:-1])
+    shelves = ""
 
     d = {"pantry": pantry, "items": items, "shelves": shelves}
     # for k in d:
