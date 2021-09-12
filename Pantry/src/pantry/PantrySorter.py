@@ -4,10 +4,19 @@ import Shelf
 import Foodstuff
 from operator import attrgetter
 
+
+def printStacks(x):
+    print("\n**********\nPrintstacks\n")
+    for stack in x.getFoodstacks():
+        print(stack)
+        print(stack.getItems())
+
+
+
 def PantrySorterEmptyShelf(Shelf: Shelf, stackableFood, unstackableFood):
     """
     input an empty shelf, two lists, one of stackable, one of unstackable items
-    first seperate into stackable and non stackable items
+    first separate into stackable and non stackable items
     make it such that widest, stackable items are at the bottom
     and the last item should be a non stackable item. so we get rid of them
     (if we are left with unstackable items at the end it would be annoying)
@@ -24,7 +33,9 @@ def PantrySorterEmptyShelf(Shelf: Shelf, stackableFood, unstackableFood):
                 foodList.remove(food)
     iShelf = 0
     remainingWidth = Shelf.width
+
     while (not Shelf.isFull() and (len(stackableFood) != 0 or len(unstackableFood) != 0)) :
+
         Shelf.createStack()
         print("stack created")
         # here I am trying to get the ith stack on the shelf. but it didnt work for me. It was an object of type list(?)
@@ -52,13 +63,14 @@ def PantrySorterEmptyShelf(Shelf: Shelf, stackableFood, unstackableFood):
                     # just first item in stack
                     if food.depth < remainingWidth:
                         remainingWidth -= food.depth
-                        curStack.addItem(food, stackable=False)
+                        curStack.addItem(food, False)
                         unstackableFood.remove(food)
                         break
                 else:
-                    curStack.addItem(food, stackable=False)
+                    curStack.addItem(food, False)
                     unstackableFood.remove(food)
                     break
+
         iShelf += 1  
         try:
             if(len(stackableFood) != 0 and remainingWidth < stackableFood[-1].depth):

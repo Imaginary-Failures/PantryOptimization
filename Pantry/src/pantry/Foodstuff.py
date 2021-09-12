@@ -1,6 +1,6 @@
 import APIReader
 
- 
+
 def volume(length: float, depth: float, height: float) -> float:
     return float(length, depth, height)
 
@@ -23,17 +23,22 @@ class Foodstuff:
         return self.type not in non_stackable
 
     def __str__(self):
-        return "Json: {}\nName: {}\nLength: {}\nDepth: {}\nHeight: {}\nWeight: {}\nBarcode: {}\nType: {}\nStackable: {}".format(
+        return "Json: {}\nName: {}\nDepth: {}\nHeight: {}\nType: {}\nStackable: {}".format(
             self.d,
             self.name,
-            self.length,
+            # self.length,
             self.depth,
             self.height,
-            self.weight,
-            self.barcodeID,
+            # self.weight,
+            # self.barcodeID,
             self.type, self.isStackable())
 
     def __le__(self, other):
         print("Less equal")
+
     def __lt__(self, other):
-        return self.depth < other.depth
+
+        temp = self.depth < other.depth
+        print("Computed {} < {}: {}".format(self.depth, other.depth, temp))
+        return temp
+

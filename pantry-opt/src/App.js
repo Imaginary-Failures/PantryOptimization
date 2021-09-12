@@ -245,9 +245,15 @@ const App = () => {
             )}
           </div>
           {items.length > 0 && tasks.length > 0 ? (
-            <Button variant="primary" size="lg" active>
-              Calculate
-            </Button>
+
+            <form method="GET" action="parse">
+              <input hidden name="pantries" value={JSON.stringify(pantries)}></input>
+              <input hidden name="items" value={JSON.stringify(items)}></input>
+              <input hidden name="tasks" value={JSON.stringify(tasks)}></input>
+              <Button type="submit" calculate={calculate} variant="primary" size="lg" active>
+                Calculate
+              </Button>
+            </form>
           ) : (
             ""
           )}
