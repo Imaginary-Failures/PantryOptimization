@@ -1,7 +1,7 @@
 import Shelf
 import Stack
 
-class Pantry():
+class Pantry:
     def __init__(self, numShelves=None):
         if(numShelves is None):
             numShelves = int(input("How many shelves in pantry?"))
@@ -28,13 +28,6 @@ class Pantry():
 
     def getNumShelves(self):
         return len(self.shelves)
-    pass
-
-    def search(self, foodstuff):
-        for shelf in self.shelves:
-            if(shelf.searchFor(foodstuff) != None):
-                return shelf.searchFor(foodstuff)
-        return None
     pass
     
     def displayShelf(self, index):

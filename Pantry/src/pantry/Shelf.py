@@ -9,22 +9,16 @@ class Shelf:
     pass
 
     def createStack(self):
-        self.stacks.append(Stack()) 
-        pass
+        self.stacks.append(Stack.Stack()) 
+    pass
 
-    def removeStack(self, index):
-        self.stacks.remove(index)
+    def removeStack(self, item):
+        removed = self.stacks.remove(item)
+        return removed
     pass
     
     def getStack(self, index):
         return self.stacks[index]
-    pass
-
-    def searchFor(self, foodstuff):
-        for scannedStack in self.stacks :
-            if(scannedStack.inStack(foodstuff)):
-                return stack
-        return None
     pass
 
     def getFoodstacks(self):

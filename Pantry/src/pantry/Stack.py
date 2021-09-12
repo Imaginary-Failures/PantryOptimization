@@ -1,8 +1,7 @@
-
 import Foodstuff
 
 class Stack:
-    def __init__(self, ):
+    def __init__(self):
         self.width = 0
         self.height = 0
         self.items = []
@@ -28,11 +27,9 @@ class Stack:
             self.height -= item.height
             return item
 
-
-
     def __str__(self):
-        return 'This stack has width, height: ' + str(self.width) + ', ' + str(self.height)
+        return 'Stack with width, height: ' + str(self.width) + ', ' + str(self.height)
 
 
     def __repr__(self):
-        return 'This stack has width, height: ' + str(self.width) + ', ' + str(self.height)
+        return 'Stack with width, height: ' + str(self.width) + ', ' + str(self.height)
