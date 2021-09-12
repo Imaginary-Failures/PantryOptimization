@@ -3,3 +3,6 @@
 /.idea/
 /Feed/__pycache__/
 /ignoremepls/
+/.venv/
+.venv/
+/pantrydjango/pantrydjango/__pycache__/
