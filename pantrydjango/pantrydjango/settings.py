@@ -56,7 +56,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, "pantrydjango/templates"),
-            os.path.join(BASE_DIR, "../pantry-opt/build")
+            os.path.join(BASE_DIR, "../pantry-opt/build"),
+            os.path.join(BASE_DIR, "../pure-pages")
         ],
         'APP_DIRS': True,
         'OPTIONS': {

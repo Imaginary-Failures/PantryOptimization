@@ -1,0 +1,9 @@
+#logo {
+  margin: 0;
+  width: 20%;
+}
+.name {
+  font-weight: bold;
+  color: #9a6b89;
+  font-size: 130%;
+}
