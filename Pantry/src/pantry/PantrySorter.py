@@ -4,7 +4,6 @@ import Shelf
 import Foodstuff
 from operator import attrgetter
 
-
 def PantrySorterEmptyShelf(Shelf: Shelf, stackableFood, unstackableFood):
     """
     input an empty shelf, two lists, one of stackable, one of unstackable items
@@ -74,7 +73,45 @@ def PantrySorterEmptyShelf(Shelf: Shelf, stackableFood, unstackableFood):
     print("end")
     return Shelf
 
-
+"""
+DynamicShelf is able to take in a single Foodstuff and scan the stacks of a Shelf 
+to check for where the item can be placed. The item will be inserted by width.
+"""
+def PantrySorterDynamicShelf(Shelf: Shelf, food):
+    isAdded = False
+    if(not food.isStackable()):
+        #find stack whose top item can be stacked on and has sufficient height
+        for curStack in Shelf.stacks :
+            if curStack.isStackable() and Shelf.height > curStack.height + food.height:
+                curStack.addItem(food, False)#change stackable property to False
+                isAdded = True
+    elif (food.isStackable()):
+        #search for suitable Stack and insert
+        for curStack in Shelf.stacks:
+            if Shelf.height > curStack.height + food.height:
+                if (curStack.width < food.depth and remainingWidth > food.depth) :
+                #if food to add will become new base and
+                #don't add if new base would exceed Shelf width
+                    remainingWidth -= (food.depth - curStack.width)
+                    curStack.width = food.depth
+                    curStack.addItem(food)
+                    isAdded = True
+                    sorted(curStack.items, reverse=True)
+                elif (curStack.width > food.depth):
+                    curStack.addItem(food)
+                    isAdded = True
+                    sorted(curStack.items, reverse=True)
+    elif(not isAdded and remainingWidth > food.depth) :
+        #create a new Stack and add as first item
+        curStack = Shelf.createStack()
+        curStack.addItem(food)
+        isAdded = True
+    else:
+        print("Could not be added due to insufficient space.")
+    if(isAdded) :
+        print("Success adding")
+    return Shelf
+    
 class PantrySorter:
     def __init__(self):
         pass
