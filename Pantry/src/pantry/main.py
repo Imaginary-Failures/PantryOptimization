@@ -1,14 +1,22 @@
 # hello pennapps
 import Foodstuff
 
-stock = []
-oil = Foodstuff.Foodstuff("olive_oil")
-for i in range(6):
-    stock.append(oil)
-can = Foodstuff.Foodstuff("canned_hash")
-for i in range(8):
-    stock.append(can)
-print(stock)
+
+def driver(pantry, items, shelves):
+    pantry = Pantry(len(shelves))
+    items_arr = []
+    if 'dict' not in str(type(items)):
+        for item in len(items):
+            items_arr.append(item)
+    print("~~~~~~~~~~~~~~\n" + str(items_arr))
+# stock = []
+# oil = Foodstuff.Foodstuff("olive_oil")
+# for i in range(6):
+#     stock.append(oil)
+# can = Foodstuff.Foodstuff("canned_hash")
+# for i in range(8):
+#     stock.append(can)
+# print(stock)
 """
 Output:
 

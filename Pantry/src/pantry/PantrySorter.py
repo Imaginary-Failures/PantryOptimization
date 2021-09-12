@@ -5,21 +5,28 @@ import Foodstuff
 from operator import attrgetter
 
 
+def printStacks(x):
+    print("\n**********\nPrintstacks\n")
+    for stack in x.getFoodstacks():
+        print(stack)
+        print(stack.getItems())
+
+
 def PantrySorterEmptyShelf(Shelf: Shelf, stackableFood, unstackableFood):
     """
     input an empty shelf, two lists, one of stackable, one of unstackable items
-    first seperate into stackable and non stackable items
+    first separate into stackable and non stackable items
     make it such that widest, stackable items are at the bottom
     and the last item should be a non stackable item. so we get rid of them
     (if we are left with unstackable items at the end it would be annoying)
     """
     print(stackableFood, unstackableFood)
-    unstackableFood = sorted(unstackableFood)
-    stackableFood = sorted(stackableFood)
+    unstackableFood = sorted(unstackableFood, reverse=True)
+    stackableFood = sorted(stackableFood, reverse=True)
     print("sorted\n{}\n{}".format(unstackableFood, stackableFood))
     iShelf = 0
     remainingWidth = Shelf.width
-    while stackableFood and unstackableFood:  # and not Shelf.full
+    while (stackableFood or unstackableFood) and remainingWidth > 0:  # and not Shelf.full
         Shelf.createStack()
         print("stack created")
         # here I am trying to get the ith stack on the shelf. but it didnt work for me. It was an object of type list(?)
@@ -47,16 +54,18 @@ def PantrySorterEmptyShelf(Shelf: Shelf, stackableFood, unstackableFood):
                     # just first item in stack
                     if food.depth < remainingWidth:
                         remainingWidth -= food.depth
-                        curStack.addItem(food, stackable=False)
+                        curStack.addItem(food, False)
                         unstackableFood.remove(food)
                         break
                 else:
-                    curStack.addItem(food, stackable=False)
+                    curStack.addItem(food, False)
                     unstackableFood.remove(food)
                     break
         iShelf += 1
+        print("\n***********\nremw", remainingWidth)
+        # printStacks(Shelf)
         try:
-            if remainingWidth < stackableFood[-1].depth and remainingWidth < unstackableFood[-1].depth:
+            if remainingWidth < stackableFood[-1].depth or remainingWidth < unstackableFood[-1].depth:
                 # checks if not even the smallest items in both lists fit onto shelf.
                 Shelf.full = True
         except:
