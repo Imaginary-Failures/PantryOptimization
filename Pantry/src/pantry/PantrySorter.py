@@ -4,6 +4,7 @@ import Shelf
 import Foodstuff
 from operator import attrgetter
 
+
 def PantrySorterEmptyShelf(Shelf: Shelf, stackableFood, unstackableFood):
     """
     input an empty shelf, two lists, one of stackable, one of unstackable items
@@ -12,13 +13,15 @@ def PantrySorterEmptyShelf(Shelf: Shelf, stackableFood, unstackableFood):
     and the last item should be a non stackable item. so we get rid of them
     (if we are left with unstackable items at the end it would be annoying)
     """
-    unstackableFood = unstackableFood.sort(key = attrgetter('depth'), reverse = True)
-    stackableFood = stackableFood.sort(key = attrgetter('depth'), reverse = True)
-    
+    print(stackableFood, unstackableFood)
+    unstackableFood = sorted(unstackableFood)
+    stackableFood = sorted(stackableFood)
+    print("sorted\n{}\n{}".format(unstackableFood, stackableFood))
     iShelf = 0
     remainingWidth = Shelf.width
-    while stackableFood and unstackableFood and not Shelf.full:
+    while stackableFood and unstackableFood:  # and not Shelf.full
         Shelf.createStack()
+        print("stack created")
         # here I am trying to get the ith stack on the shelf. but it didnt work for me. It was an object of type list(?)
         curStack = Shelf.stacks[iShelf]
         for food in stackableFood:
@@ -27,9 +30,10 @@ def PantrySorterEmptyShelf(Shelf: Shelf, stackableFood, unstackableFood):
                 # if this is not true, it cant be stacked anyways
                 if not curStack.items:
                     # just first item in stack
-                    if food.width < remainingWidth:
-                        remainingWidth -= food.width
+                    if food.depth < remainingWidth:
+                        remainingWidth -= food.depth
                         curStack.addItem(food)
+                        print("adding {}".format(food))
                 else:
                     curStack.addItem(food)
         for food in curStack.items:
@@ -41,8 +45,8 @@ def PantrySorterEmptyShelf(Shelf: Shelf, stackableFood, unstackableFood):
                 # if this is not true, it cant be stacked anyways
                 if not curStack.items:
                     # just first item in stack
-                    if food.width < remainingWidth:
-                        remainingWidth -= food.width
+                    if food.depth < remainingWidth:
+                        remainingWidth -= food.depth
                         curStack.addItem(food, stackable=False)
                         unstackableFood.remove(food)
                         break
@@ -51,9 +55,13 @@ def PantrySorterEmptyShelf(Shelf: Shelf, stackableFood, unstackableFood):
                     unstackableFood.remove(food)
                     break
         iShelf += 1
-        if remainingWidth < stackableFood[-1] and remainingWidth < unstackableFood[-1]:
-            # checks if not even the smallest items in both lists fit onto shelf.
-            Shelf.full = True
+        try:
+            if remainingWidth < stackableFood[-1].depth and remainingWidth < unstackableFood[-1].depth:
+                # checks if not even the smallest items in both lists fit onto shelf.
+                Shelf.full = True
+        except:
+            print("avoided something")
+    print("end")
     return Shelf
 
 

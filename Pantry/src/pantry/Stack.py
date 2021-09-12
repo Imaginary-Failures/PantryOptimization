@@ -24,7 +24,7 @@ class Stack:
 
     def addItem(self,item,stackable = True):
         if not len(self.items):
-            self.width = item.width
+            self.width = item.depth
         if not stackable:
             self.stackable = False
 
