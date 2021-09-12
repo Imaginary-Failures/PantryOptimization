@@ -3,3 +3,5 @@
 /.idea/
 /Feed/__pycache__/
 /ignoremepls/
+/.venv/
+.venv/

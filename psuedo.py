@@ -8,7 +8,7 @@ For shelf in pantry
     While sum(dict.values) < shelf.width
          find item in dict.values where item <= shelf.height - item.height
                 rearrange_stack(dict[stack_index], item)
-                """
+"""
 
 """
 rearrange_stack(stack, newItem) -> stack:
@@ -33,7 +33,5 @@ Valid Output:
         [4, 3]  [3,2]
 [9,7]   [5, 1]  [3,2]
 [10,3]  [9, 4]  [3,3]
-
-
-
+# where l[0] = width, l[1] = height
 """
