@@ -57,16 +57,19 @@ class Stack:
             return item
 
     def getItems(self):
-        return self.items
+        out = ""
+        for i in self.items:
+            out += i.name + "\n"
+        return out
     
     def isEmpty(self):
         return self.items == []
     
     def __str__(self):
-        return 'Stack with width, height: ' + str(self.width) + ', ' + str(self.height)
+        return 'Stack with width: {}, height: {}'.format(str(self.width), str(self.height))
 
     def __repr__(self):
-        return 'Stack with width, height: ' + str(self.width) + ', ' + str(self.height)
+        return 'Stack with width: {}, height: {}'.format(str(self.width), str(self.height))
 # =======
 #         if item:
 #             for i in self.items:
