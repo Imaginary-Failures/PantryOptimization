@@ -2,15 +2,18 @@
 import Foodstuff
 
 class Stack:
-    def __init__(self, ):
+    def __init__(self ):
         self.width = 0
         self.height = 0
         self.items = []
+        self.stackable = True
 
 
-    def addItem(self,item):
+    def addItem(self,item,stackable = True):
         if not len(self.items):
             self.width = item.width
+        if not stackable:
+            self.stackable = False
         self.height += item.height
         self.items.append(item)
 

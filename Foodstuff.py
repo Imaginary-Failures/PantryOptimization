@@ -11,9 +11,8 @@ class Foodstuff:
     def __init__(self, name: str):
         self.d = APIReader.APIReader(name).r_json
         self.name = self.d["name"]
-        self.length = self.d["dimensions"]["length"]
-        self.depth = self.d["dimensions"]["depth"]
-        self.height = self.d["dimensions"]["depth"]
+        self.width = self.d["dimensions"]["width"]
+        self.height = self.d["dimensions"]["height"]
         self.weight = self.d["dimensions"]["weight"]
         self.barcodeID = self.d["barcode"]
         self.type = self.d["dimensions"]["type"]
@@ -32,3 +31,8 @@ class Foodstuff:
             self.weight,
             self.barcodeID,
             self.type, self.isStackable())
+
+    def __lt__(self, other):
+        """ method to campare instances of Foodstuff. If you call sorted(list) on a list of foodstuff, the largest
+        item is sorted to the beginning of the list"""
+        return self.width > other.width
