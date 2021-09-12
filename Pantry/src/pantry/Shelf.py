@@ -7,6 +7,7 @@ class Shelf:
         self.width = w
         self.height = h
         self.stacks = []
+        self.full = False
 
     pass
 
@@ -44,6 +45,14 @@ class Shelf:
     def isEmpty(self):
         return self.stacks == []
 
+    pass
+
+    def setFull(self, x):
+        self.full = x
+    pass
+
+    def isFull(self):
+        return self.full
     pass
 
     def __str__(self):
