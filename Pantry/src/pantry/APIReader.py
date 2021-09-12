@@ -3,7 +3,7 @@ import os
 
 
 def getItem(item: str) -> str:
-    dir = './Feed/GenericJSONS'
+    dir = './GenericJSONS'
     for filename in os.listdir(dir):
         curr_file = os.path.join(dir, filename)
         if item in filename:

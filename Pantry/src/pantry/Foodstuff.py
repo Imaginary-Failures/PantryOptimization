@@ -32,3 +32,8 @@ class Foodstuff:
             self.weight,
             self.barcodeID,
             self.type, self.isStackable())
+
+    def __le__(self, other):
+        print("Less equal")
+    def __lt__(self, other):
+        print("Less than")
