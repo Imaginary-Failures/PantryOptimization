@@ -14,7 +14,7 @@ def parse(request):
     This function parses the information from the react form into our computation script using a GET request.
     """
     context = {}
-    return render(request, 'results.html', context)
+    return render(request, 'parse.html', context)
 
 def landing(request):
     """

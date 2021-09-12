@@ -23,5 +23,6 @@ urlpatterns = [
     path('index', TemplateView.as_view(template_name='index.html')),
     path('parse', views.parse),
     path('landing', views.landing),
-    path('about', views.about)
+    path('about', views.about),
+    path('parse', views.parse)
 ]

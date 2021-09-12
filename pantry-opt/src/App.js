@@ -213,10 +213,15 @@ const App = () => {
               "No Items Available"
             )}
           </div>
+
           {items.length > 0 && tasks.length > 0 ? (
-            <Button calculate={calculate} variant="primary" size="lg" active>
-              Calculate
-            </Button>
+            <form method="GET" action="parse">
+              <input hidden name="pantries" value={JSON.stringify(pantries)}></input>
+              <input hidden name="items" value={JSON.stringify(items)}></input>
+              <Button type="submit" calculate={calculate} variant="primary" size="lg" active>
+                Calculate
+              </Button>
+            </form>
           ) : (
             ""
           )}
@@ -224,6 +229,7 @@ const App = () => {
       ) : (
         ""
       )}
+
 
       <Particles
         params={{
