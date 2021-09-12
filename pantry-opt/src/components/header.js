@@ -19,7 +19,7 @@ const header = ({ title, onAdd, showAdd }) => {
 };
 
 header.defaultProps = {
-  title: "Specify your shelves",
+  title: "Shelves",
 };
 
 header.propTypes = {

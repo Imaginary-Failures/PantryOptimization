@@ -15,7 +15,7 @@ const Task = ({ task, onDelete, onToggle }) => {
         />
       </h3>
       <p>
-        {task.length}, {task.width}, {task.height}
+        {task.length} in. &times; {task.width} in. &times; {task.height} in.
       </p>
     </div>
   );

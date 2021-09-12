@@ -59,6 +59,8 @@ const AddTask = ({ showAddTask, onAdd, pantries, home, pantryOptions }) => {
       <div className="form-control">
         <label>Length</label>
         <input
+          min="0"
+          step=".01"
           type="number"
           placeholder="Length"
           value={length}
@@ -68,6 +70,8 @@ const AddTask = ({ showAddTask, onAdd, pantries, home, pantryOptions }) => {
       <div className="form-control">
         <label>Width</label>
         <input
+          min="0"
+          step=".01"
           type="number"
           placeholder="Width"
           value={width}
@@ -77,6 +81,8 @@ const AddTask = ({ showAddTask, onAdd, pantries, home, pantryOptions }) => {
       <div className="form-control">
         <label>Height</label>
         <input
+          min="0"
+          step=".01"
           type="number"
           placeholder="Height"
           value={height}
@@ -89,15 +95,6 @@ const AddTask = ({ showAddTask, onAdd, pantries, home, pantryOptions }) => {
         value="Add shelves"
         className="btn btn-block"
       ></input>
-
-      <button
-        style={buttonStyles}
-        onClick={calculate}
-        value="Calculate"
-        className="btn btn-block"
-      >
-        Calculate
-      </button>
     </form>
   );
 };

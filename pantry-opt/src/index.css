@@ -6,34 +6,94 @@
   padding: 0;
 }
 
+canvas.tsparticles-canvas-el {
+  max-height: 200px;
+}
+
+button.btn.active.btn-primary.btn-lg:hover {
+  transform: scale(1.1);
+}
+
+div.task {
+  background-color: rgb(135, 179, 157);
+  border-radius: 5px;
+}
+
+div.form-control {
+  background-color: lightblue;
+}
+
+div.form-control:hover {
+  background-color: rgb(146, 179, 163);
+}
+
+svg:hover {
+  transform: scale(1.1);
+}
+
+input {
+  background-color: lightgray;
+}
+
+.containerPantry:hover {
+  opacity: 0.75;
+  background-color: rgb(174, 209, 192);
+  transform: scale(1.04);
+  transition-duration: 0.2s;
+}
+.containerItems:hover {
+  opacity: 0.75;
+  background-color: rgb(174, 209, 192);
+  transform: scale(1.04);
+  transition-duration: 0.2s;
+}
+.containerShelf:hover {
+  opacity: 0.75;
+  background-color: rgb(174, 209, 192);
+  transform: scale(1.04);
+  transition-duration: 0.2s;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
 
 .containerShelf {
-  max-width: 500px;
+  max-width: 400px;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
+  border: 3px solid steelblue;
   padding: 30px;
   border-radius: 5px;
 }
 .containerPantry {
-  max-width: 500px;
+  max-width: 400px;
   margin: 30px auto;
   overflow: auto;
-  min-height: 300px;
-  border: 1px solid steelblue;
+  min-height: 200px;
+  border: 3px solid steelblue;
   padding: 20px;
   border-radius: 5px;
 }
-
+.containerItems {
+  max-width: 400px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 3px solid steelblue;
+  padding: 20px;
+  border-radius: 5px;
+}
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+}
+
+button.btn {
+  color: #f4f4f4;
 }
 
 .btn {
@@ -75,6 +135,19 @@ body {
 }
 
 .task h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.item h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;

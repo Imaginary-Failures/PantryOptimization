@@ -14,7 +14,8 @@ const Pantry = ({ pantry, onDelete, onToggle }) => {
         />
       </h3>
       <p>
-        Dimensions: {pantry.length}, {pantry.width}, {pantry.height}
+        {pantry.length} in. &times; {pantry.width} in. &times; {pantry.height}{" "}
+        in.
       </p>
     </div>
   );
