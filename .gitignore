@@ -5,3 +5,4 @@
 /ignoremepls/
 /.venv/
 .venv/
+/pantrydjango/pantrydjango/__pycache__/
